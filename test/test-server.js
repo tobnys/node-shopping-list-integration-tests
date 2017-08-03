@@ -142,3 +142,10 @@ describe('Shopping List', function() {
       });
   });
 });
+
+
+describe("Recipes", function() {
+  it("GET should return a list of recipes") {
+    
+  }
+});
