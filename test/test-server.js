@@ -145,7 +145,65 @@ describe('Shopping List', function() {
 
 
 describe("Recipes", function() {
-  it("GET should return a list of recipes") {
-    
-  }
+  before(function() {
+    return runServer();
+  });
+
+  after(function() {
+    return closeServer();
+  });
+
+
+  it("should return a list of recipes on GET", function() {
+    return chai.request(app).get("/recipes").then(function(res) {
+      res.should.have.status(200);
+      res.should.be.json;
+      res.body.should.be.an("array");
+
+      const requiredFields = ["name", "id", "ingredients"];
+      res.body.forEach(function(item) {
+        item.should.be.a("object");
+        item.should.include.keys(requiredFields);
+      });
+
+    });
+  });
+
+  it("should add an item on POST", function() {
+    const newItem = {name: "testName", ingredients: ["test1", "test2", "test3"]};
+    return chai.request(app).post("/recipes")
+    .send(newItem)
+    .then(function(res) {
+      res.should.have.status(201);
+      res.should.be.json;
+      res.should.be.an("object");
+      res.body.should.include.keys(newItem);
+    });
+  });
+
+  it("should update an item on PUT", function() {
+    const updatedItem = {name: "testUpdate", ingredients: ["testu1", "testu2", "testu3"]}
+    return chai.request(app).get("/recipes")
+    .then(function(res) {
+      updatedItem.id = res.body[0].id;
+
+
+      return chai.request(app).put(`/recipes/${updatedItem.id}`).send(updatedItem)
+    })
+    .then(function(res) {
+      res.body.should.be.an("object");
+      res.should.have.status(200);
+      res.should.be.json;
+      res.body.should.deep.equal(updatedItem);
+    });
+  });
+
+  it("should delete an item on DELETE", function() {
+    return chai.request(app).get("/recipes").then(function(res) {
+      const testID = res.body[0].id;
+      return chai.request(app).delete(`/recipes/${testID}`).then(function(res) {
+        res.should.have.status(204);
+      });
+    });
+  });
 });
