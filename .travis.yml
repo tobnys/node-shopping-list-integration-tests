@@ -4,6 +4,6 @@ deploy:
   provider: heroku
   api_key:
     secure: rOplUXCnbnwG1NeGQ/O65KYpFMiCW6S2dnS06RhVF/mYM5lgHqHsPHiWoewTC2/+DYnZYwkA6sYVzWmD3Gp/ba1or1J0jjyDVliP9ZFAlD7quVsRgWq6/CUiBGQIBx2Wen3gkbE4dwN9yQaz6az/V/R0PYNu5fGamHJhX8q6IazQqFZUELkc0TSj/jr8/65YWHnSENZz7M0vXbwLIyprSVa6eKS0Sig7LFV+4O48exOwP6qelv8rPOOxi7Or6BVyPw41oOPrYgTXAoCgE1IsMzyajzHKhFXYsXHXVESoZotaMlZeNoDA5Ib0/ibb/jHk0x8jbv+oF/KHsxweNkh6oqtl4YN8X49CBoeANHxIjwfOHrojiawmz7TmLHJmNTEE8aDQORMGQkmtbe9HC07eXu5OupyK3/jrDEQF2ioFyC4/cZLytsUsnT97/AHbEUTsXNH1gMuL9d72yChu5z4247L5rxRXQGHdv6qeaj2+9dh+JvPQ8UL2+xC7CjyiHSMvs/PTzYYX03zA0qltMyBASwEKakQVFEigwDkCItlsUyGkjc2pAd77UwLxxgI5emxP1ZJkJV98ImbZXEFTS8TDJhuS2vAjQ0q8hepR9ZyX2EVusxPh5jhzJLjrIcchyjSntTFm2eW+HnfOckij7OlCsWTi5fLhBQge4MiEuKbZRbA=
-  app: https://warm-shelf-69835.herokuapp.com/
+  app: warm-shelf-69835
   on:
     repo: tobnys/node-shopping-list-integration-tests
